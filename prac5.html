@@ -1,0 +1,16 @@
+const godaddy = require('godaddy');
+
+const domainName = 'example.com';
+const apiKey = 'YOUR_API_KEY';
+const apiSecret = 'YOUR_API_SECRET';
+
+godaddy.setApiKey(apiKey, apiSecret);
+
+godaddy.domain.available(domainName)
+  .then((available) => {
+    console.log(`Domain ${domainName} is ${available ? 'available' : 'not available'}`);
+  })
+  .catch((error) => {
+    console.error(`Error: ${error}`);
+  });
+
